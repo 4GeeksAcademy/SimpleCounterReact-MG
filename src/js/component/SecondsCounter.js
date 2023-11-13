@@ -1,13 +1,17 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import React from 'react';
+import Proptypes from 'prop-types';
+import Seconds from './Seconds';
 
-const SecondsCounter = () => {
+const SecondsCounter = (props) => {
+  let secondsValue = props.seconds;
   return (
-    <div>
-       <FontAwesomeIcon icon={faClock} />
+    <div className='container-fluid h-75 bg-dark text-light text-center'>
+      <h1><Seconds initialSeconds={secondsValue} /></h1>
     </div>
-  )
-}
+  );
+};
 
-export default SecondsCounter
+SecondsCounter.propTypes = {
+  seconds: Proptypes.number
+};
+export default SecondsCounter;
